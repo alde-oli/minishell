@@ -1,17 +1,7 @@
 <!-- YoRHa archive -->
-```
-▸ YoRHa // ARCHIVE — MINISHELL
-```
+<p align="center"><img src=".github/yorha-header.svg" width="100%" alt="YoRHa // ARCHIVE — minishell · Type: 42 Lausanne common-core project · team (2) · Stack: C · GNU readline · POSIX (fork / execve / pipe / dup2) · Status: ■ COMPLETE"></p>
 
 A small Bash-like shell in C: tokenizer, syntax checker, pipes, redirections, heredocs, `&&` / `||` with parentheses, and wildcards.
-
-![C](https://img.shields.io/badge/lang-C-4e4b42?style=flat-square) ![readline](https://img.shields.io/badge/GNU-readline-dad4bb?style=flat-square)
-
-| UNIT DATA | |
-|---|---|
-| Type | 42 Lausanne common-core project · team (2) |
-| Stack | C · GNU readline · POSIX (fork / execve / pipe / dup2) |
-| Status | ■ COMPLETE |
 
 ## ▸ Overview
 minishell reimplements the core of an interactive shell. Each input line is checked for syntax errors
