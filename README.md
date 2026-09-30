@@ -28,8 +28,8 @@ minishell$ ls *.c | wc -l
 minishell$ (false || echo retry) && echo "status: $?"
 minishell$ cat << EOF > notes.txt
 ```
-Requires GNU readline. The Makefile looks for it under `~/.brew` (42 macOS setup) and builds with `-fsanitize=address`;
-`make leaks` runs the macOS `leaks` tool on exit.
+Requires GNU readline: on Linux the development package (`libreadline-dev` / `readline-devel`), on macOS Homebrew's `readline` (found with `brew --prefix`, falling back to `~/.brew`).
+`make SAN=1` builds with AddressSanitizer; `make leaks` runs the macOS `leaks` tool on exit.
 
 ## ▸ Structure
 ```text

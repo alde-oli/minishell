@@ -16,17 +16,29 @@ wildcards2.c verify_input2.c pipe2.c commands2.c convert_env2.c export_env.c exp
 RM		:= rm -f
 NAME	:= minishell
 CC		:= gcc
-INCDIR	:= -I includes -I libft -I $(HOME)/.brew/Cellar/readline/8.1.1/include
+INCDIR	:= -I includes -I libft
+RL_LIB	:= -lreadline
+
+# macOS: readline from Homebrew (system libedit lacks rl_replace_line)
+ifeq ($(shell uname -s),Darwin)
+RL_DIR	:= $(shell brew --prefix readline 2>/dev/null || echo $(HOME)/.brew/opt/readline)
+INCDIR	+= -I $(RL_DIR)/include
+RL_LIB	:= -L$(RL_DIR)/lib -lreadline
+endif
 
 LIB		:= libft.a
 LIBDIR	:= libft
 LIBPATH	:= $(LIBDIR)/$(LIB)
-CFLAGS	:= -Wall -Wextra -Werror $(INCDIR) -fsanitize=address 
+CFLAGS	:= -Wall -Wextra -Werror $(INCDIR)
+# make SAN=1 builds with AddressSanitizer
+ifdef SAN
+CFLAGS	+= -g -fsanitize=address
+endif
 
 all: $(NAME)
 
 $(NAME): $(CFILES) $(LIBPATH)
-	$(CC) $(CFLAGS) $(CFILES) -o $(NAME) -lreadline -L$(HOME)/.brew/opt/readline/lib $(LIBPATH)
+	$(CC) $(CFLAGS) $(CFILES) -o $(NAME) $(LIBPATH) $(RL_LIB)
 
 $(LIBPATH):
 	make -C $(LIBDIR)

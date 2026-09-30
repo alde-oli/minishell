@@ -58,7 +58,7 @@ t_buffers	*get_t_buffer(int fd, t_buffers **input)
 int	add_buff(t_buffers *b, int *lindex, int *len, char **line)
 {
 	*lindex = newline_i(b->buffer + b->index, b->end - b->index);
-	*line = malloc(0);
+	*line = malloc(1);
 	while (*lindex == -1 && b->end)
 	{
 		*len = reallojoin(line, *len, b->buffer + b->index, b->end - b->index);
