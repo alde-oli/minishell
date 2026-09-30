@@ -43,8 +43,8 @@ builtin*.c  export_env* builtins and environment list
 ```
 
 ## ▸ Squad
-- **dvandenb** — tokenizer, syntax checks, logical operators, command execution, builtins
-- **alde-oli** (Alexandre) — wildcard expansion (`wildcards.c`), plus the first versions of variable expansion (`convert_env.c`), the export list (`export_env*.c`) and the pipe module (`pipe.c`), which dvandenb later edited
+- **David** ([DavePie](https://github.com/DavePie), 42 login `dvandenb`) — tokenizer, syntax checks, logical operators, command execution, builtins
+- **alde-oli** (Alexandre) — wildcard expansion (`wildcards.c`), plus the first versions of variable expansion (`convert_env.c`), the export list (`export_env*.c`) and the pipe module (`pipe.c`), which David later edited
 
 Authorship above is taken from the 42 file headers; the Git history is a single import commit.
 
